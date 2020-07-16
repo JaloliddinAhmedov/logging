@@ -1,0 +1,63 @@
+body {
+    width: inherit;
+    min-height: inherit;
+    margin: 0;
+    padding: 0;
+    width: calc(100%) !important;
+}
+
+.tiny_text {
+ font-size: 1px;
+ background-color: aqua;
+}
+
+@media(min-width: 600px) {
+    .MuiToolbar-regular {
+        min-height: 32px !important;
+    }
+}
+@media(min-width: 1280px) {
+    .MuiContainer-maxWidthLg {
+        max-width: initial;
+    }
+}
+.MuiTableCell-root {
+    padding: 5px !important;
+}
+
+.cellClass{
+    width: 2ch;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.wrapping{
+    overflow-wrap: break-word;
+}
+
+.MuiGrid-spacing-xs-1 {
+    width: calc(100%) !important;
+    margin: 3 -3px !important;
+    padding: 5px 10px !important;
+}
+
+.subtable{
+    box-sizing: border-box;
+    padding: 5px 10px !important;
+    
+}
+
+.app_instance{
+    padding: 5px 10px 5px 10px !important;
+    padding-bottom: 10px;
+}
+
+.app_instance2{
+    /* padding: 5px 10px!important; */
+    padding-left: 10px; 
+    align-content: flex-end;
+    text-align: center;
+}
+
+.inboxPad{
+    padding: 0 !important;
+}

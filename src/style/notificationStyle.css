@@ -1,0 +1,56 @@
+.button{
+    /* background-color: #808080; */
+    color: white;
+    text-decoration: none;
+    padding: 8px 10px;
+    position: relative;
+    display: inline-block;
+    left: 650px;
+    top: 20px;
+}
+
+.button:hover{
+    /* background: orange; */
+    cursor: pointer
+}
+
+.button .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 3px 5px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    /* visibility: hidden */
+}
+
+.badge:hover{
+    background-color: white;
+    color: red;
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+    width: 1em;
+    height: 1em;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: #040505;
+  }
+  
+  .svg-icon circle {
+    stroke: #01050a;
+    stroke-width: 1;
+  }
+
+/* <a href="#" class="button">
+    <span>unread</span>
+    <span class="badge">3</span>
+</a> */

@@ -3,20 +3,15 @@ import Cookie from 'js-cookie';
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Fade from '@material-ui/core/Fade';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, styled } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/styles';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
@@ -88,6 +83,14 @@ class SignIn extends React.Component {
       login: '',
       password: '',
     }
+
+    if(Cookie.get('cookies')){
+      window.location = '/dashboard';
+    }
+  }
+
+  componentWillMount () {
+    
   }
 
   openSnackbar = () => this.setState({ isSnackbarOpen: true });
@@ -104,24 +107,30 @@ class SignIn extends React.Component {
     console.log(this.state);
     this.setState({ isSubmitting: true })
     axios({
-        url: 'https://qizil.antexpert.uz/auth/login',
+        url: 'https://logger-api.antexpert.uz/auth/login',
         method: 'POST',
         headers: {
           'x-requested-with': 'XMLHttpRequest',
+          'Content-Type': 'application/json'
         },
         data: {
-          login: this.state.login,
-          password: this.state.password,
+          "meta": {
+          },
+          "payload": [
+            {
+              "login": this.state.login,
+              "password": this.state.password
+            }
+          ]
         }
     }).then((res) => {
-        if(res.status === 200 && res.data.token) {
+        if(res.status === 200 && res.data.payload[0].token) {
             
             console.log(res);
             
-            Cookie.set('token', res.data.token);
+            Cookie.set('cookies', res.data.payload[0].token);
             setTimeout(() => {
-                window.location = '/dashboard';
-
+                window.location = '/dashboard/error-logs';
             }, 300);
             
           }

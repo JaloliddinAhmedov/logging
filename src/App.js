@@ -7,7 +7,7 @@ import Login from './pages/Login/Login';
 const DashboardRoute = ({ component: Component, ...rest }) => {
     return (
         <Route {...rest} render={props =>
-                Cookie.get('token') ? (
+                Cookie.get('cookies') ? (
                     <Component {...props} />
                 ) : (
                     <Redirect
@@ -23,7 +23,10 @@ const DashboardRoute = ({ component: Component, ...rest }) => {
 }
 
 class App extends React.Component {
+
     render() {
+      console.log('in render of App');
+      
         return (
         <Router>
             <Switch>
@@ -32,7 +35,7 @@ class App extends React.Component {
                 <Route path='/login' component={ Login } />
             </Switch>
         </Router>
-        ) 
+        )
     }
 }
 

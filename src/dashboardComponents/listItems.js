@@ -3,11 +3,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
-import { Link, LinkProps } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import '../style/style.css'
 
 const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
 
@@ -25,11 +24,41 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Error logs" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={AdapterLink} to="/dashboard/app-instance">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Menu 3" />
+      <ListItemText primary="App Instance" />
+    </ListItem>
+    <ListItem button component={AdapterLink} to="/dashboard/inbox">
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Inbox" />
+    </ListItem>
+    <ListItem button component={AdapterLink} to="/dashboard/archive">
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Archive" />
+    </ListItem>
+    <ListItem  button component={AdapterLink} to="/dashboard/processing">
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Processing" />
+    </ListItem>
+    <ListItem  button component={AdapterLink} to="/dashboard/all">
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="All" />
+    </ListItem>
+    <ListItem  button component={AdapterLink} to="/dashboard/findbyid">
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Find By Id" />
     </ListItem>
   </React.Fragment>
 );

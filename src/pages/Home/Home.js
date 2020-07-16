@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Chart from './components/Chart';
 import Deposits from './components/Deposits';
 import Orders from './components/Orders';
+import EnhancedTable from './components/EnhancedTable';
 
 const drawerWidth = 240;
 
@@ -95,22 +96,22 @@ export default function Dashboard() {
 
   return (
     <Grid container spacing={3}>
-      {/* Chart */}
+      Chart
       <Grid item xs={12} md={8} lg={9}>
         <Paper className={fixedHeightPaper}>
           <Chart />
         </Paper>
       </Grid>
-      {/* Recent Deposits */}
+      Recent Deposits
       <Grid item xs={12} md={4} lg={3}>
         <Paper className={fixedHeightPaper}>
           <Deposits />
         </Paper>
       </Grid>
-      {/* Recent Orders */}
+      Recent Orders
       <Grid item xs={12}>
         <Paper className={classes.paper}>
-          <Orders />
+          <EnhancedTable />
         </Paper>
       </Grid>
     </Grid>
